@@ -1,6 +1,5 @@
 package course.concurrency.m2_async.executors.spring;
 
-import java.util.concurrent.Executor;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +12,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class AsyncConfiguration implements AsyncConfigurer {
 
   @Bean(name = "applicationTaskExecutor")
-  public Executor threadPoolTaskExecutor() {
+  public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
     ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
     executor.setCorePoolSize(4);
     executor.setMaxPoolSize(4);
@@ -24,7 +23,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
   }
 
   @Bean(name = "applicationTaskExecutor2")
-  public Executor threadPoolTaskExecutor2() {
+  public ThreadPoolTaskExecutor threadPoolTaskExecutor2() {
     ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
     executor.setCorePoolSize(4);
     executor.setMaxPoolSize(4);
