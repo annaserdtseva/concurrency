@@ -1,5 +1,6 @@
 package course.concurrency.m2_async.executors.spring;
 
+import java.util.concurrent.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,7 @@ public class SpringBootAsyncTest {
 
     // this method executes after application start
     @EventListener(ApplicationReadyEvent.class)
-    public void actionAfterStartup() {
+    public void actionAfterStartup() throws ExecutionException, InterruptedException {
         testClass.runAsyncTask();
     }
 
